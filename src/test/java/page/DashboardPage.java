@@ -17,7 +17,7 @@ public class DashboardPage {
 
     private final String balanceFinish = "р. ";
 
-    private final SelenideElement heading = $("data-test-id=dashboard");
+    private final SelenideElement heading = $("[data-test-id=dashboard]");
 
     private final ElementsCollection cards = $$(".list__item div");
 

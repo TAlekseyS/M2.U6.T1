@@ -18,6 +18,7 @@ public class MoneyTranferTest {
 
     @BeforeEach
     void setup() {
+        //var loginPage = open("http://localhost:9999", LoginPage.class);
         Selenide.open("http://localhost:9999");
         var loginPage = new LoginPage();
         var authInfo = getAuthInfo();
@@ -33,12 +34,11 @@ public class MoneyTranferTest {
         var firstCardBalance = dashboardPage.getCardBalance(firstCardInfo);
         var secondCardBalance = dashboardPage.getCardBalance(secondCardInfo);
         var amount = generateValidAmount(firstCardBalance);
+        //
         var expectedBalanceFirstCard = firstCardBalance - amount;
-
         var expectedBalanceSecondCard = secondCardBalance + amount;
         var transferPage = dashboardPage.selectCardToTransfer(secondCardInfo);
         dashboardPage = transferPage.makeValidTransfer(String.valueOf(amount), firstCardInfo);
-
         var actualBalanceFirstCard = dashboardPage.getCardBalance(firstCardInfo);
         var actualBalanceSecondCard = dashboardPage.getCardBalance(secondCardInfo);
         assertEquals(expectedBalanceFirstCard, actualBalanceFirstCard);

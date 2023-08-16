@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class TransferPage {
 
 
-    private final SelenideElement transferButton = $("[data-test-id='action-tranfer']");
+    private final SelenideElement transferButton = $("[data-test-id='action-transfer']");
 
     private final SelenideElement amountInputNew = $("[data-test-id='amount'] input");
 
