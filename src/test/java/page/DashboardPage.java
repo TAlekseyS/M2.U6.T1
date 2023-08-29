@@ -13,9 +13,9 @@ import static com.codeborne.selenide.Selenide.$$;
 public class DashboardPage {
 
 
-    private final String balanceStart = "баланс: ";
+    private final String balanceStart = ", баланс: ";
 
-    private final String balanceFinish = "р.";
+    private final String balanceFinish = " р. ";
 
     private final SelenideElement heading = $("[data-test-id=dashboard]");
 
@@ -34,6 +34,7 @@ public class DashboardPage {
         var text = cards.get(index).getText();
         return extractBalance(text);
     }
+
 
     public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) {
         cards.findBy(attribute("data-test-id", cardInfo.getTestId())).$("button").click();
